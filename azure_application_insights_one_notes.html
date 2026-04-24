@@ -1,0 +1,517 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);background:transparent;color:var(--color-text-primary)}
+.page{max-width:680px;margin:0 auto;padding:0 0 40px}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#185FA5 0%,#0C447C 60%,#042C53 100%);border-radius:var(--border-radius-lg);padding:28px 28px 22px;margin-bottom:24px;color:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.05)}
+.hero-badge{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.15);border:0.5px solid rgba(255,255,255,.25);border-radius:20px;padding:3px 10px;display:inline-block;margin-bottom:10px;color:#B5D4F4}
+.hero h1{font-size:22px;font-weight:500;color:#fff;margin-bottom:6px;line-height:1.3}
+.hero p{font-size:13px;color:rgba(255,255,255,.75);line-height:1.6;max-width:520px}
+.hero-footer{margin-top:16px;padding-top:14px;border-top:0.5px solid rgba(255,255,255,.15);font-size:12px;color:rgba(255,255,255,.55)}
+
+/* Section headers */
+.sec-header{display:flex;align-items:center;gap:10px;margin:28px 0 14px}
+.sec-dot{width:10px;height:10px;border-radius:50%}
+.sec-title{font-size:17px;font-weight:500;color:var(--color-text-primary)}
+.sec-rule{flex:1;height:0.5px;background:var(--color-border-tertiary)}
+
+/* Cards */
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 18px;margin-bottom:12px}
+.card-title{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px}
+.card-body{font-size:13px;color:var(--color-text-secondary);line-height:1.65}
+
+/* Grid */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px}
+
+/* Definition chips */
+.def-chip{display:flex;gap:10px;align-items:flex-start;padding:10px 14px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);border-left:3px solid #185FA5;margin-bottom:8px}
+.def-label{font-size:12px;font-weight:500;color:#185FA5;min-width:60px;padding-top:1px}
+.def-text{font-size:12px;color:var(--color-text-secondary);line-height:1.55}
+
+/* Analogy box */
+.analogy{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:12px 16px;margin-bottom:10px}
+.analogy-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:#0F6E56;margin-bottom:5px}
+.analogy-text{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+
+/* Feature table */
+.ftable{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:12px}
+.ftable th{text-align:left;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-tertiary);padding:6px 10px;border-bottom:0.5px solid var(--color-border-tertiary)}
+.ftable td{padding:7px 10px;border-bottom:0.5px solid var(--color-border-tertiary);vertical-align:top;color:var(--color-text-secondary);line-height:1.5}
+.ftable tr:last-child td{border-bottom:none}
+.ftable tr:hover td{background:var(--color-background-secondary)}
+.ftable td:first-child{font-weight:500;color:var(--color-text-primary);white-space:nowrap}
+
+/* Metric pills row */
+.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.pill{font-size:12px;padding:4px 12px;border-radius:20px;font-weight:500}
+.pill-blue{background:#E6F1FB;color:#0C447C}
+.pill-teal{background:#E1F5EE;color:#085041}
+.pill-amber{background:#FAEEDA;color:#633806}
+.pill-coral{background:#FAECE7;color:#4A1B0C}
+.pill-green{background:#EAF3DE;color:#27500A}
+
+/* Step flow */
+.step-row{display:flex;align-items:stretch;gap:0;margin-bottom:12px}
+.step-box{flex:1;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px;text-align:center}
+.step-num{font-size:11px;font-weight:500;color:var(--color-text-tertiary);margin-bottom:3px}
+.step-name{font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px}
+.step-sub{font-size:11px;color:var(--color-text-secondary)}
+.step-arrow{display:flex;align-items:center;padding:0 4px;color:var(--color-text-tertiary);font-size:16px}
+
+/* Two-col layout */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+
+/* Highlighted usecase */
+.usecase{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:12px 14px;margin-bottom:8px}
+.usecase-company{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:#185FA5;margin-bottom:4px}
+.usecase-headline{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.usecase-detail{font-size:12px;color:var(--color-text-secondary);line-height:1.55}
+
+/* Compare table */
+.compare{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:14px}
+.compare th{padding:7px 12px;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-tertiary);text-align:left;border-bottom:0.5px solid var(--color-border-tertiary)}
+.compare td{padding:8px 12px;border-bottom:0.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);vertical-align:top}
+.compare td:first-child{font-weight:500;color:var(--color-text-primary)}
+.compare td.good{color:#0F6E56}
+.compare td.warn{color:#854F0B}
+
+/* OT table */
+.ot-table{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:10px}
+.ot-table th{padding:6px 10px;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-tertiary);border-bottom:0.5px solid var(--color-border-tertiary);text-align:left}
+.ot-table td{padding:6px 10px;border-bottom:0.5px solid var(--color-border-tertiary);font-size:12px;color:var(--color-text-secondary)}
+.ot-table td:first-child{color:#185FA5;font-weight:500}
+.ot-table tr:last-child td{border-bottom:none}
+
+/* Avail test cards */
+.test-card{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:12px 14px}
+.test-badge{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;padding:2px 8px;border-radius:10px;margin-bottom:8px;display:inline-block}
+.test-title{font-size:13px;font-weight:500;margin-bottom:5px;color:var(--color-text-primary)}
+.test-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.55}
+
+/* Map legend */
+.map-legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px}
+.map-leg-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--color-text-secondary)}
+.map-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+
+/* Mental map breadcrumb */
+.breadcrumb{display:flex;align-items:center;gap:0;font-size:11px;margin-bottom:14px;flex-wrap:wrap}
+.bc-item{padding:5px 12px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary)}
+.bc-item:first-child{border-radius:var(--border-radius-md) 0 0 var(--border-radius-md)}
+.bc-item:last-child{border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;background:#E6F1FB;color:#0C447C;font-weight:500}
+.bc-sep{padding:5px 4px;background:var(--color-background-secondary);border-top:0.5px solid var(--color-border-tertiary);border-bottom:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+
+/* Kv rows */
+.kv{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:0.5px solid var(--color-border-tertiary);font-size:12px}
+.kv:last-child{border-bottom:none}
+.kv-k{color:var(--color-text-secondary)}
+.kv-v{font-weight:500;color:var(--color-text-primary)}
+
+/* Footer */
+.footer{text-align:center;font-size:11px;color:var(--color-text-tertiary);border-top:0.5px solid var(--color-border-tertiary);padding-top:16px;margin-top:32px}
+</style>
+
+<div class="page">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">AZ-204 · Azure Developer Associate</div>
+  <h1>Azure Application Insights &amp; App Performance Monitoring</h1>
+  <p>A complete one-note covering APM fundamentals, instrumentation strategies, metrics, availability testing, and Application Map — with analogies, definitions, and real-world use cases.</p>
+  <div class="hero-footer">By Raushan Ranjan &nbsp;·&nbsp; MCT | Azure / Power Platform / Dotnet / Qt / AIAgent Developer</div>
+</div>
+
+<!-- MENTAL MAP -->
+<div class="sec-header"><div class="sec-dot" style="background:#185FA5"></div><div class="sec-title">Mental Map — Where does this fit?</div><div class="sec-rule"></div></div>
+
+<div class="breadcrumb">
+  <span class="bc-item">Microsoft Azure</span><span class="bc-sep">›</span>
+  <span class="bc-item">Azure Monitor</span><span class="bc-sep">›</span>
+  <span class="bc-item">Application Insights</span><span class="bc-sep">›</span>
+  <span class="bc-item">APM + Telemetry + Tracing</span>
+</div>
+
+<div class="analogy">
+  <div class="analogy-label">Big Picture Analogy</div>
+  <div class="analogy-text"><strong>Azure Monitor</strong> is the hospital. <strong>Application Insights</strong> is the specialist doctor assigned to your apps — wiring up heart-rate monitors (metrics), running blood tests (logs), watching vital signs in real time (Live Metrics), and alerting nurses when something goes wrong (Smart Detection). Without this doctor, you only know the patient is sick <em>after</em> they collapse.</div>
+</div>
+
+<div style="margin-bottom:8px">
+  <svg width="100%" viewBox="0 0 680 130" role="img"><title>Application Insights in Azure Monitor ecosystem</title><desc>Hierarchy: Azure Monitor contains Log Analytics, Metrics, Application Insights, and Alerts</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <rect x="10" y="10" width="660" height="110" rx="14" fill="none" stroke="var(--color-border-tertiary)" stroke-width="0.5" stroke-dasharray="5 4"/>
+  <text class="ts" x="340" y="28" text-anchor="middle" style="font-size:11px;fill:var(--color-text-tertiary);font-family:var(--font-sans)">Azure Monitor (Umbrella)</text>
+  <g>
+    <rect x="30" y="38" width="130" height="68" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+    <text text-anchor="middle" dominant-baseline="central" x="95" y="65" style="font-size:12px;font-weight:500;fill:#0C447C;font-family:var(--font-sans)">Log Analytics</text>
+    <text text-anchor="middle" x="95" y="82" style="font-size:11px;fill:#185FA5;font-family:var(--font-sans)">KQL queries</text>
+  </g>
+  <g>
+    <rect x="180" y="38" width="150" height="68" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="1"/>
+    <text text-anchor="middle" dominant-baseline="central" x="255" y="65" style="font-size:12px;font-weight:500;fill:#26215C;font-family:var(--font-sans)">Application Insights</text>
+    <text text-anchor="middle" x="255" y="82" style="font-size:11px;fill:#534AB7;font-family:var(--font-sans)">APM · This Module</text>
+  </g>
+  <g>
+    <rect x="350" y="38" width="130" height="68" rx="8" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.5"/>
+    <text text-anchor="middle" dominant-baseline="central" x="415" y="65" style="font-size:12px;font-weight:500;fill:#173404;font-family:var(--font-sans)">Metrics Explorer</text>
+    <text text-anchor="middle" x="415" y="82" style="font-size:11px;fill:#3B6D11;font-family:var(--font-sans)">Time-series data</text>
+  </g>
+  <g>
+    <rect x="500" y="38" width="130" height="68" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+    <text text-anchor="middle" dominant-baseline="central" x="565" y="65" style="font-size:12px;font-weight:500;fill:#412402;font-family:var(--font-sans)">Alerts &amp; Actions</text>
+    <text text-anchor="middle" x="565" y="82" style="font-size:11px;fill:#854F0B;font-family:var(--font-sans)">Notifications</text>
+  </g>
+  </svg>
+</div>
+
+<!-- SECTION 1: WHAT IS APP INSIGHTS -->
+<div class="sec-header"><div class="sec-dot" style="background:#534AB7"></div><div class="sec-title">1 · What is Application Insights?</div><div class="sec-rule"></div></div>
+
+<div class="card">
+  <div class="card-title">Core Definition</div>
+  <div class="card-body">Application Insights is an <strong>extension of Azure Monitor</strong> that provides <em>Application Performance Monitoring (APM)</em>. It collects metrics, telemetry, and trace logs from your live applications and visualises them so you can proactively detect issues before users notice, and reactively diagnose root causes when incidents happen.</div>
+</div>
+
+<div class="g2">
+  <div class="def-chip" style="grid-column:1/-1"><div class="def-label">APM</div><div class="def-text">Application Performance Monitoring — the discipline of tracking an app's health, speed, and error rates continuously across its full lifecycle (dev → test → production).</div></div>
+  <div class="def-chip" style="grid-column:1/-1"><div class="def-label">Telemetry</div><div class="def-text">Automated data collected from a running system. Includes request counts, response times, exceptions, page views, dependency calls, and custom events written by developers.</div></div>
+  <div class="def-chip" style="grid-column:1/-1"><div class="def-label">Trace Logs</div><div class="def-text">Diagnostic log messages emitted at runtime (e.g., log.Information("Order placed")). App Insights correlates these with the specific HTTP request that produced them.</div></div>
+</div>
+
+<div class="analogy">
+  <div class="analogy-label">Analogy — The Flight Black Box</div>
+  <div class="analogy-text">Your app is an aeroplane. Without Application Insights it has no flight recorder. If it crashes you have no idea why. App Insights is the <strong>Flight Data Recorder + Cockpit Voice Recorder</strong> — continuously capturing altitude (response time), engine metrics (CPU/memory), co-pilot chatter (trace logs), and GPS track (distributed traces).</div>
+</div>
+
+<!-- FEATURE TABLE -->
+<table class="ftable">
+  <thead><tr><th>Feature</th><th>What it does</th><th>Analogy</th></tr></thead>
+  <tbody>
+    <tr><td>Live Metrics</td><td>Real-time stream of requests, failures, and server health</td><td>Ambulance dashboard while driving</td></tr>
+    <tr><td>Availability Tests</td><td>Probes your URL from global Azure datacentres on a schedule</td><td>Security guard doing hourly rounds</td></tr>
+    <tr><td>Smart Detection</td><td>ML-based anomaly detection — alerts on sudden failure spikes</td><td>Smoke detector in the kitchen</td></tr>
+    <tr><td>Application Map</td><td>Visual topology of microservices + health overlay</td><td>Circuit board diagram with red LEDs on broken components</td></tr>
+    <tr><td>Distributed Tracing</td><td>End-to-end journey of a single request through N services</td><td>Parcel tracking from warehouse to door</td></tr>
+    <tr><td>Usage Analytics</td><td>Funnels, retention, user flows</td><td>CCTV heat-map in a retail store</td></tr>
+    <tr><td>GitHub / ADO Integration</td><td>Create work items directly from an exception</td><td>Bug report auto-filing to Jira</td></tr>
+  </tbody>
+</table>
+
+<!-- WHAT IT MONITORS -->
+<div class="card">
+  <div class="card-title">What App Insights monitors — at a glance</div>
+  <div class="pill-row" style="margin-top:8px">
+    <span class="pill pill-blue">Request rates &amp; response times</span>
+    <span class="pill pill-coral">Failure rates</span>
+    <span class="pill pill-teal">Dependency calls (SQL, HTTP)</span>
+    <span class="pill pill-amber">Exceptions &amp; stack traces</span>
+    <span class="pill pill-green">Page views &amp; AJAX</span>
+    <span class="pill pill-blue">User &amp; session counts</span>
+    <span class="pill pill-teal">Performance counters (CPU/RAM)</span>
+    <span class="pill pill-coral">Docker / Azure host diagnostics</span>
+    <span class="pill pill-amber">Custom events &amp; metrics</span>
+  </div>
+</div>
+
+<!-- REAL-WORLD USE CASES -->
+<div class="sec-header"><div class="sec-dot" style="background:#1D9E75"></div><div class="sec-title">Real-World Use Cases</div><div class="sec-rule"></div></div>
+
+<div class="usecase">
+  <div class="usecase-company">E-Commerce (Flipkart / Amazon scenario)</div>
+  <div class="usecase-headline">Detecting checkout failures during a flash sale</div>
+  <div class="usecase-detail">During a sale, thousands of concurrent users hit checkout. App Insights Smart Detection fires an alert within 2 minutes when the payment-service failure rate jumps from 0.5% → 12%. The on-call engineer opens Application Map, sees the payment-service node glowing red, clicks through to Distributed Traces, and finds a SQL connection-pool timeout. Fix deployed before most users notice.</div>
+</div>
+<div class="usecase">
+  <div class="usecase-company">SaaS Platform (Salesforce / Dynamics scenario)</div>
+  <div class="usecase-headline">Identifying slow dependency degrading UX globally</div>
+  <div class="usecase-detail">Average response time creeps from 200ms → 1.4s over three weeks. Log-based metrics in App Insights show dependency response time for the "ReportGenerator" external API increased 5×. Usage analytics reveal 22% of users abandoned the report page. PM and dev team correlate performance data with user drop-off — making a business case to replace the third-party API.</div>
+</div>
+<div class="usecase">
+  <div class="usecase-company">Banking / FinTech (HDFC / Revolut scenario)</div>
+  <div class="usecase-headline">Availability SLA monitoring across geographies</div>
+  <div class="usecase-detail">Availability Tests ping the login endpoint every 5 minutes from 5 Azure regions. One morning, the India-East probe starts failing while US and Europe pass. Alert fires, geo-routing issue is found in Azure Front Door config. Without global probes, the team would have relied on customer complaints — damaging trust in a regulated industry.</div>
+</div>
+
+<!-- SECTION 2: METRICS -->
+<div class="sec-header"><div class="sec-dot" style="background:#EF9F27"></div><div class="sec-title">2 · Log-Based vs Standard Metrics</div><div class="sec-rule"></div></div>
+
+<div class="analogy">
+  <div class="analogy-label">Analogy — CCTV vs Sensor Dashboard</div>
+  <div class="analogy-text"><strong>Log-based metrics</strong> = full CCTV footage. Every event is stored; you can rewind and inspect any moment in detail. But replaying hours of footage at query time is slow. <strong>Standard (pre-aggregated) metrics</strong> = the live sensor dashboard on the security desk — it shows "42 people entered in the last minute" instantly because it was computed as it happened. You can't drill into individuals, but it's blazing fast for alerts and dashboards.</div>
+</div>
+
+<table class="compare">
+  <thead><tr><th>Dimension</th><th>Log-Based Metrics</th><th>Standard (Pre-aggregated)</th></tr></thead>
+  <tbody>
+    <tr><td>Storage form</td><td class="warn">Individual events in Log Analytics</td><td class="good">Time-series aggregates</td></tr>
+    <tr><td>Query time</td><td class="warn">Kusto query at read time (slower)</td><td class="good">Pre-computed (fast)</td></tr>
+    <tr><td>Dimensions / detail</td><td class="good">All properties available</td><td class="warn">Only key dimensions kept</td></tr>
+    <tr><td>Best for</td><td class="good">Ad-hoc diagnostics, root-cause analysis</td><td class="good">Dashboards, real-time alerts</td></tr>
+    <tr><td>Sampling impact</td><td class="warn">Accuracy drops if sampling enabled</td><td class="good">Unaffected (aggregated before sampling)</td></tr>
+    <tr><td>SDK requirement</td><td>Any SDK version</td><td>SDK 2.7+ for preaggregation</td></tr>
+  </tbody>
+</table>
+
+<div class="card">
+  <div class="card-title">Key insight: Both coexist in App Insights</div>
+  <div class="card-body">In Metrics Explorer, use the <strong>namespace selector</strong> to switch between "Log-based metrics" and "Standard metrics (preview)". Use Standard for your operations dashboard; switch to Log-based when investigating a specific incident.</div>
+</div>
+
+<!-- SECTION 3: INSTRUMENTATION -->
+<div class="sec-header"><div class="sec-dot" style="background:#D85A30"></div><div class="sec-title">3 · Instrumenting Your App</div><div class="sec-rule"></div></div>
+
+<div class="def-chip"><div class="def-label">Instrumentation</div><div class="def-text">Enabling an application to capture and emit telemetry data. Think of it as "wiring up sensors inside the app." More sensors = more visibility, but also more effort to configure.</div></div>
+
+<div class="g2" style="margin-top:12px">
+  <div class="card">
+    <div class="card-title" style="color:#185FA5">Auto-Instrumentation</div>
+    <div class="card-body" style="margin-top:4px">
+      <div class="pill pill-blue" style="margin-bottom:8px;display:inline-block">Zero code changes</div><br>
+      Enable via Azure Portal configuration on App Service, AKS, VMs.<br><br>
+      <strong>Best for:</strong> Already-deployed apps, migrations, teams without SDK expertise.<br><br>
+      <strong>Limitation:</strong> Less configurable; not available for all languages.
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title" style="color:#D85A30">Manual Instrumentation</div>
+    <div class="card-body" style="margin-top:4px">
+      <div class="pill pill-coral" style="margin-bottom:8px;display:inline-block">SDK in code</div><br>
+      Install App Insights SDK or Azure Monitor OpenTelemetry Distro.<br><br>
+      <strong>Best for:</strong> Custom events, business metrics, full control of telemetry pipeline.<br><br>
+      <strong>Requirement:</strong> You manage SDK version updates.
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">Use the SDK only when…</div>
+  <div class="card-body">
+    <span style="color:#185FA5">①</span> You need <strong>custom events/metrics</strong> (e.g., "items sold", "game won")<br>
+    <span style="color:#185FA5">②</span> You need to <strong>control telemetry flow</strong> (filter/enrich data before sending)<br>
+    <span style="color:#185FA5">③</span> <strong>Auto-instrumentation isn't available</strong> for your language or platform
+  </div>
+</div>
+
+<!-- OpenTelemetry -->
+<div class="analogy">
+  <div class="analogy-label">What is OpenTelemetry?</div>
+  <div class="analogy-text"><strong>OpenTelemetry (OTel)</strong> is the open-source, vendor-neutral standard for capturing traces, metrics, and logs — backed by CNCF (Cloud Native Computing Foundation). Microsoft is a Platinum Member. Think of it as the <strong>USB standard for observability</strong>: instead of every cloud vendor having a proprietary cable (SDK), OTel gives you one universal connector that works anywhere — AWS, GCP, Azure, or on-prem.</div>
+</div>
+
+<div class="card">
+  <div class="card-title">App Insights → OpenTelemetry terminology map</div>
+  <table class="ot-table" style="margin-top:8px">
+    <thead><tr><th>Old (Application Insights)</th><th>New (OpenTelemetry)</th></tr></thead>
+    <tbody>
+      <tr><td>Autocollectors</td><td>Instrumentation libraries</td></tr>
+      <tr><td>Channel</td><td>Exporter</td></tr>
+      <tr><td>Codeless / Agent-based</td><td>Autoinstrumentation</td></tr>
+      <tr><td>Traces</td><td>Logs</td></tr>
+      <tr><td>Requests</td><td>Server Spans</td></tr>
+      <tr><td>Dependencies</td><td>Client / Internal Spans</td></tr>
+      <tr><td>Operation ID</td><td>Trace ID</td></tr>
+      <tr><td>Operation Parent ID</td><td>Span ID</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SECTION 4: AVAILABILITY TESTS -->
+<div class="sec-header"><div class="sec-dot" style="background:#3B6D11"></div><div class="sec-title">4 · Availability Tests</div><div class="sec-rule"></div></div>
+
+<div class="def-chip"><div class="def-label">Definition</div><div class="def-text">Availability Tests (aka Synthetic Transaction Monitoring) are scheduled HTTP probes fired from Azure datacentres across the world to check if your app is up, responsive, and returning correct results.</div></div>
+
+<div class="analogy" style="margin-top:10px">
+  <div class="analogy-label">Analogy — Mystery Shoppers at Every Branch</div>
+  <div class="analogy-text">Imagine your app is a bank with branches worldwide. Azure sends "mystery shoppers" (probes) every 5 minutes to every branch, checking: Is the door open? Is service quick? Is the ATM working? If a branch fails 3 checks in a row, the regional manager (you) gets an alert.</div>
+</div>
+
+<div class="g3" style="margin-top:12px">
+  <div class="test-card">
+    <div class="test-badge" style="background:#E6F1FB;color:#0C447C">Standard Test</div>
+    <div class="test-title">Standard Availability Test</div>
+    <div class="test-desc">Single HTTP request. Validates TLS/SSL cert validity, proactive cert expiry, custom headers, POST/GET/HEAD verbs. <em>Recommended for most scenarios.</em></div>
+  </div>
+  <div class="test-card">
+    <div class="test-badge" style="background:#E1F5EE;color:#085041">Custom TrackAvailability</div>
+    <div class="test-title">Custom TrackAvailability()</div>
+    <div class="test-desc">Your own code runs the test logic and calls <code>TrackAvailability()</code> to push results to App Insights. Use for multi-step, login-required, or non-HTTP tests.</div>
+  </div>
+  <div class="test-card">
+    <div class="test-badge" style="background:#FAEEDA;color:#633806">⚠ Retiring 2026</div>
+    <div class="test-title">URL Ping Test (Classic)</div>
+    <div class="test-desc">Simple URL check via portal. Being retired <strong>Sep 30, 2026</strong>. Migrate to Standard Tests before then.</div>
+  </div>
+</div>
+
+<div class="usecase" style="margin-top:4px">
+  <div class="usecase-company">Healthcare SaaS (Epic / MedGenix scenario)</div>
+  <div class="usecase-headline">Detecting regional outages before patients can't book appointments</div>
+  <div class="usecase-detail">Availability tests ping the appointment booking endpoint from East US, West Europe, and Southeast Asia every 5 minutes. When a CDN misconfiguration affects Southeast Asia traffic, the probe from Singapore fails while the US probe passes. The infrastructure team receives an alert and rolls back the CDN config within 8 minutes — before any patient calls the helpdesk.</div>
+</div>
+
+<!-- SECTION 5: APPLICATION MAP -->
+<div class="sec-header"><div class="sec-dot" style="background:#993C1D"></div><div class="sec-title">5 · Application Map</div><div class="sec-rule"></div></div>
+
+<div class="def-chip"><div class="def-label">Definition</div><div class="def-text">Application Map is a visual, auto-discovered topology diagram of your distributed application. Every microservice, external dependency (SQL, Blob, Event Hub), and downstream API becomes a node. Node colour = health status. Edge thickness ~ traffic volume.</div></div>
+
+<div class="analogy" style="margin-top:10px">
+  <div class="analogy-label">Analogy — The National Highway Traffic Map</div>
+  <div class="analogy-text">Google Maps shows every city (service), road (API call), and roadblock (failure). You can instantly see <em>which junction is causing the traffic jam</em> — rather than reading through thousands of log lines. Application Map is the Google Maps for your microservices. Red nodes = jams. Click a node to get the Waze-style drill-down of why it's slow.</div>
+</div>
+
+<div style="margin:14px 0 10px">
+  <svg width="100%" viewBox="0 0 680 200" role="img"><title>Application Map example topology</title><desc>Web frontend calls API Gateway, which calls Order Service and Payment Service. Order Service calls SQL DB. Payment Service calls external Stripe API.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+
+  <!-- Web Frontend -->
+  <g>
+    <rect x="20" y="76" width="110" height="48" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+    <text text-anchor="middle" x="75" y="96" style="font-size:11px;font-weight:500;fill:#0C447C;font-family:var(--font-sans)">Web Frontend</text>
+    <text text-anchor="middle" x="75" y="112" style="font-size:10px;fill:#185FA5;font-family:var(--font-sans)">Blazor SPA</text>
+  </g>
+  <!-- API Gateway -->
+  <g>
+    <rect x="180" y="76" width="120" height="48" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+    <text text-anchor="middle" x="240" y="96" style="font-size:11px;font-weight:500;fill:#26215C;font-family:var(--font-sans)">API Gateway</text>
+    <text text-anchor="middle" x="240" y="112" style="font-size:10px;fill:#534AB7;font-family:var(--font-sans)">APIM / Ocelot</text>
+  </g>
+  <!-- Arrows FE → Gateway -->
+  <line x1="130" y1="100" x2="178" y2="100" stroke="#185FA5" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Order Service -->
+  <g>
+    <rect x="360" y="30" width="120" height="48" rx="8" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.5"/>
+    <text text-anchor="middle" x="420" y="50" style="font-size:11px;font-weight:500;fill:#173404;font-family:var(--font-sans)">Order Service</text>
+    <text text-anchor="middle" x="420" y="66" style="font-size:10px;fill:#3B6D11;font-family:var(--font-sans)">.NET API</text>
+  </g>
+  <!-- Payment Service (red = failing) -->
+  <g>
+    <rect x="360" y="122" width="120" height="48" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="1"/>
+    <text text-anchor="middle" x="420" y="142" style="font-size:11px;font-weight:500;fill:#501313;font-family:var(--font-sans)">Payment Service</text>
+    <text text-anchor="middle" x="420" y="158" style="font-size:10px;fill:#A32D2D;font-family:var(--font-sans)">⚠ 12% failure</text>
+  </g>
+  <!-- Gateway → Order -->
+  <line x1="300" y1="90" x2="358" y2="60" stroke="#534AB7" stroke-width="1" marker-end="url(#arrow)"/>
+  <!-- Gateway → Payment -->
+  <line x1="300" y1="110" x2="358" y2="140" stroke="#A32D2D" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- SQL DB -->
+  <g>
+    <rect x="545" y="30" width="110" height="48" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+    <text text-anchor="middle" x="600" y="50" style="font-size:11px;font-weight:500;fill:#04342C;font-family:var(--font-sans)">Azure SQL DB</text>
+    <text text-anchor="middle" x="600" y="66" style="font-size:10px;fill:#0F6E56;font-family:var(--font-sans)">Dependency</text>
+  </g>
+  <!-- Stripe -->
+  <g>
+    <rect x="545" y="122" width="110" height="48" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+    <text text-anchor="middle" x="600" y="142" style="font-size:11px;font-weight:500;fill:#412402;font-family:var(--font-sans)">Stripe API</text>
+    <text text-anchor="middle" x="600" y="158" style="font-size:10px;fill:#854F0B;font-family:var(--font-sans)">External dep.</text>
+  </g>
+  <line x1="480" y1="54" x2="543" y2="54" stroke="#3B6D11" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="480" y1="146" x2="543" y2="146" stroke="#A32D2D" stroke-width="1.5" marker-end="url(#arrow)"/>
+  </svg>
+</div>
+
+<div class="map-legend">
+  <div class="map-leg-item"><span class="map-dot" style="background:#185FA5"></span>Healthy service</div>
+  <div class="map-leg-item"><span class="map-dot" style="background:#A32D2D"></span>Failing service / hot-spot</div>
+  <div class="map-leg-item"><span class="map-dot" style="background:#3B6D11"></span>Internal dependency (SQL, Storage)</div>
+  <div class="map-leg-item"><span class="map-dot" style="background:#854F0B"></span>External dependency (3rd party API)</div>
+</div>
+
+<div class="card">
+  <div class="card-title">Key concepts in Application Map</div>
+  <div class="card-body">
+    <strong>Component</strong> — any independently deployable microservice with App Insights SDK installed.<br>
+    <strong>Dependency</strong> — external services (SQL, Redis, Event Hub, REST API) that your component calls. Observed but not instrumented by your team.<br>
+    <strong>Cloud role name</strong> — the property App Insights uses to identify each node on the map. Can be overridden in code.<br>
+    <strong>Progressive discovery</strong> — the map builds itself by following HTTP dependency calls; hit "Update map components" to refresh.
+  </div>
+</div>
+
+<div class="usecase">
+  <div class="usecase-company">Microservices Platform (Uber / OLA scenario)</div>
+  <div class="usecase-headline">Pinpointing the broken link in a 15-service chain</div>
+  <div class="usecase-detail">A rider reports "app stuck on booking." With 15 microservices, reading logs would take hours. Application Map shows the Pricing Service node in amber (elevated latency) while downstream Surge-Calculator is red (failures). Drill-down shows a Redis cache eviction storm. Team fixes cache TTL config in 20 minutes — without App Map it would have been a multi-hour bridge call.</div>
+</div>
+
+<!-- SECTION 6: GETTING STARTED PATHS -->
+<div class="sec-header"><div class="sec-dot" style="background:#7F77DD"></div><div class="sec-title">6 · Getting Started — Decision Flow</div><div class="sec-rule"></div></div>
+
+<div class="step-row">
+  <div class="step-box" style="background:#E6F1FB;border-color:#185FA5">
+    <div class="step-num">Path A</div>
+    <div class="step-name" style="color:#0C447C">At Runtime</div>
+    <div class="step-sub" style="color:#185FA5">No code change. Enable in portal. Best for live apps.</div>
+  </div>
+  <div class="step-arrow">→</div>
+  <div class="step-box" style="background:#EEEDFE;border-color:#534AB7">
+    <div class="step-num">Path B</div>
+    <div class="step-name" style="color:#26215C">At Dev Time</div>
+    <div class="step-sub" style="color:#534AB7">Add SDK. Custom events + full control.</div>
+  </div>
+  <div class="step-arrow">→</div>
+  <div class="step-box" style="background:#EAF3DE;border-color:#3B6D11">
+    <div class="step-num">Path C</div>
+    <div class="step-name" style="color:#173404">Browser / SPA</div>
+    <div class="step-sub" style="color:#3B6D11">JS snippet for page views, AJAX, user flows.</div>
+  </div>
+  <div class="step-arrow">→</div>
+  <div class="step-box" style="background:#FAEEDA;border-color:#854F0B">
+    <div class="step-num">Path D</div>
+    <div class="step-name" style="color:#412402">Availability</div>
+    <div class="step-sub" style="color:#854F0B">Add URL/Standard tests from the portal.</div>
+  </div>
+</div>
+
+<!-- KEY TERMS GLOSSARY -->
+<div class="sec-header"><div class="sec-dot" style="background:#888780"></div><div class="sec-title">Glossary of Key Terms</div><div class="sec-rule"></div></div>
+
+<div class="card">
+  <div class="kv"><span class="kv-k">Instrumentation Key / Connection String</span><span class="kv-v">Unique token linking your app to an App Insights resource</span></div>
+  <div class="kv"><span class="kv-k">Sampling</span><span class="kv-v">Technique to reduce telemetry volume by storing only a % of events</span></div>
+  <div class="kv"><span class="kv-k">Kusto (KQL)</span><span class="kv-v">Query language used to analyse log-based metrics in Log Analytics</span></div>
+  <div class="kv"><span class="kv-k">Span / Trace ID</span><span class="kv-v">OTel identifiers — trace = entire request journey, span = one step</span></div>
+  <div class="kv"><span class="kv-k">Preaggregation</span><span class="kv-v">Computing metric summaries at collection time (not query time)</span></div>
+  <div class="kv"><span class="kv-k">Smart Detection</span><span class="kv-v">Automated ML anomaly alerts — no rule configuration needed</span></div>
+  <div class="kv"><span class="kv-k">Live Metrics Stream</span><span class="kv-v">Sub-second latency dashboard; zero storage impact on host</span></div>
+  <div class="kv"><span class="kv-k">Cloud Role Name</span><span class="kv-v">Property used to name nodes on Application Map</span></div>
+</div>
+
+<!-- EXAM TIPS -->
+<div class="sec-header"><div class="sec-dot" style="background:#D4537E"></div><div class="sec-title">AZ-204 Exam Tips</div><div class="sec-rule"></div></div>
+
+<div class="g2">
+  <div class="card" style="border-left:3px solid #D4537E">
+    <div class="card-title" style="color:#D4537E">Remember</div>
+    <div class="card-body">
+      • App Insights is an <em>extension of Azure Monitor</em> — not standalone<br>
+      • Availability tests require <strong>no code changes</strong> and work with any HTTP/HTTPS endpoint<br>
+      • URL Ping Tests retire Sep 30, 2026 — use Standard Tests<br>
+      • Both Log-based &amp; Standard metrics coexist; use namespace selector to switch<br>
+      • SDK 2.7+ enables client-side preaggregation → less cost + better accuracy
+    </div>
+  </div>
+  <div class="card" style="border-left:3px solid #185FA5">
+    <div class="card-title" style="color:#185FA5">Common Trick Questions</div>
+    <div class="card-body">
+      • Standard metrics are NOT affected by sampling — log-based are<br>
+      • Application Map discovers topology via <strong>HTTP dependency tracking</strong>, not network scans<br>
+      • Custom TrackAvailability() = you own the test logic; Standard = Azure owns it<br>
+      • OpenTelemetry "Traces" = App Insights "Logs" (confusing terminology!)<br>
+      • Autoinstrumentation may not support all languages — check docs before assuming
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p style="margin-bottom:4px">Azure Application Insights — Monitor App Performance Module</p>
+  <p>By <strong>Raushan Ranjan</strong> &nbsp;·&nbsp; MCT | Azure / Power Platform / Dotnet / Qt / AIAgent Developer</p>
+  <p style="margin-top:4px;font-size:10px">Based on Microsoft Learn module: monitor-app-performance · AZ-204</p>
+</div>
+
+</div>
