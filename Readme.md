@@ -5,7 +5,7 @@
 
 <br>
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-GitHub_Pages-0c4a8a?style=for-the-badge)](https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-GitHub_Pages-0c4a8a?style=for-the-badge)](https://raushan1107.github.io/AZ-204-MonitoringServicesSimplified/)
 [![AZ-204](https://img.shields.io/badge/AZ--204-Azure_Developer_Associate-185FA5?style=for-the-badge&logo=microsoftazure&logoColor=white)](https://learn.microsoft.com/en-us/certifications/azure-developer/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
